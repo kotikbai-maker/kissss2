@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b0614">
+<title>KIS Scripts — Halloween</title>
+<style>
+:root{--bg:#090711;--purple:#a855f7;--orange:#ff8126;--text:#f7f1ff;--muted:#b8adc9;--blue:#39a9ff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;color:var(--text);font-family:Inter,"Segoe UI",Arial,sans-serif;background:radial-gradient(ellipse at 15% 0%,#52207866,transparent 38%),radial-gradient(ellipse at 90% 15%,#7b2b1240,transparent 32%),var(--bg);overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.22;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:47px 47px;animation:stars 18s linear infinite}
+@keyframes stars{from{transform:translateY(0)}to{transform:translateY(-47px)}}
+.wrap{position:relative;width:min(980px,calc(100% - 32px));margin:auto}
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:26px 0 22px;border-bottom:1px solid #ffffff18;animation:fadeDown .7s ease both}
+.brand{font-size:clamp(30px,5vw,42px);font-weight:1000;letter-spacing:-1.7px;text-shadow:0 0 22px #a855f755}.brand span{color:var(--orange)}
+.tag{border:1px solid #a855f766;color:#e1c6ff;background:#a855f71c;padding:9px 13px;border-radius:999px;font-size:11px;font-weight:900;letter-spacing:1.7px;white-space:nowrap;box-shadow:0 0 20px #a855f71c}
+main{padding:34px 0 50px}
+.hero{position:relative;overflow:hidden;text-align:center;padding:clamp(28px,6vw,54px) 18px;border-radius:27px;background:linear-gradient(145deg,#251437f5,#100c1cf5 70%);border:1px solid #a855f777;box-shadow:0 0 40px #8b35ce24;animation:fadeUp .8s ease both}
+.hero:before{content:"✦";position:absolute;top:16px;left:22px;color:var(--purple);font-size:25px;animation:twinkle 2.5s ease-in-out infinite}
+.hero:after{content:"✧";position:absolute;right:24px;bottom:18px;color:var(--orange);font-size:35px;animation:twinkle 2s ease-in-out infinite reverse}
+.glow{position:absolute;width:230px;height:230px;border-radius:50%;filter:blur(70px);opacity:.15;pointer-events:none}.glow.one{background:#a855f7;top:-130px;left:-60px}.glow.two{background:#ff8126;right:-80px;bottom:-140px}
+.eyebrow{position:relative;color:var(--orange);font-size:12px;letter-spacing:5px;font-weight:1000;margin-bottom:15px;animation:pulse 2s ease-in-out infinite}
+h1{position:relative;margin:0 0 11px;font-size:clamp(29px,6vw,48px);font-weight:1000;letter-spacing:-1px}
+.sub{position:relative;color:var(--muted);margin:0 auto 25px;max-width:560px;line-height:1.65}
+.timer-wrap{position:relative;width:min(440px,100%);margin:18px auto 8px;padding:17px 12px 20px;border-radius:22px;background:#08061088;border:1px solid #ffffff12;box-shadow:inset 0 0 32px #a855f712,0 0 30px #a855f711}
+.timer{font-variant-numeric:tabular-nums;font-size:clamp(61px,14vw,100px);line-height:1.05;font-weight:1000;letter-spacing:2px;color:#fff;text-shadow:0 0 12px #c084fc,0 0 35px #a855f788;animation:timerGlow 3s ease-in-out infinite}
+.timer.urgent{color:#ff9a54;text-shadow:0 0 12px #ff8126,0 0 35px #ff4b1888;animation:urgentPulse .8s ease-in-out infinite}
+.timer-label{color:var(--muted);font-size:12px;letter-spacing:3px;text-transform:uppercase;margin-top:7px}
+.timer-state{position:relative;min-height:23px;margin-top:15px;color:#e2d4f1;font-size:14px}
+.progress{height:7px;max-width:440px;margin:20px auto 0;background:#ffffff14;border-radius:99px;overflow:hidden}
+.progress-bar{height:100%;width:100%;border-radius:99px;background:linear-gradient(90deg,#a855f7,#ff8126);box-shadow:0 0 14px #a855f7;transition:width .4s linear}
+.sync-note{margin:12px auto 0;color:#9b8ba9;font-size:11px;max-width:520px;line-height:1.5}
+.section-title{display:flex;align-items:center;gap:11px;margin:38px 0 15px;font-size:24px;font-weight:1000;animation:fadeUp .8s .15s both}.section-title .emoji{font-size:25px;filter:drop-shadow(0 0 9px #ff812677)}
+.projects-box{border:1px solid #a855f766;background:#151020dd;border-radius:19px;padding:25px;box-shadow:inset 0 0 22px #a855f70b;animation:fadeUp .8s .25s both}
+.empty{border:1px dashed #ffffff35;border-radius:14px;padding:31px 16px;text-align:center;color:var(--muted);background:#ffffff03}
+.empty-icon{font-size:32px;margin-bottom:9px;animation:bob 3s ease-in-out infinite}.empty strong{display:block;color:var(--text);margin-bottom:7px;font-size:17px;font-weight:900}
+footer{text-align:center;color:#82758f;padding:0 0 28px;font-size:12px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-15px)}to{opacity:1;transform:translateY(0)}}
+@keyframes twinkle{0%,100%{opacity:.5;transform:scale(.85) rotate(0)}50%{opacity:1;transform:scale(1.15) rotate(15deg)}}
+@keyframes pulse{0%,100%{text-shadow:0 0 0 #ff812600}50%{text-shadow:0 0 14px #ff8126aa}}
+@keyframes timerGlow{0%,100%{transform:scale(1);filter:brightness(1)}50%{transform:scale(1.015);filter:brightness(1.15)}}
+@keyframes urgentPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.035)}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@media(max-width:520px){header{align-items:flex-start;flex-direction:column}.projects-box{padding:14px}.tag{font-size:10px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body><div class="wrap">
+<header><div class="brand">KIS <span>Scripts</span></div><div class="tag">🎃 HALLOWEEN EDITION</div></header>
+<main>
+<section class="hero">
+<div class="glow one"></div><div class="glow two"></div>
+<div class="eyebrow">✦ NEW SCRIPT ✦</div>
+<h1>Таймер тёмной ночи</h1>
+<p class="sub">до дропа скрипта.</p>
+<div class="timer-wrap"><div class="timer" id="timer">45:00</div><div class="timer-label">минуты : секунды</div></div>
+<div class="timer-state" id="timerState">Загружаем общий таймер…</div>
+<div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+<p class="sync-note" id="syncNote">Таймер использует общую дату окончания, заданную в коде сайта.</p>
+</section>
+<div class="section-title"><span class="emoji">🧡</span> Наши проекты</div>
+<section class="projects-box" id="projects"><div class="empty" id="emptyState"><div class="empty-icon">🕸️</div><strong>Проектов пока нет</strong>Скоро здесь появятся новые скрипты и проекты.</div></section>
+</main>
+<footer>KIS Scripts · By Kismur4ik TikTok@kismur4ik 🎃</footer>
+</div>
+<script>
+/*
+  Общий таймер до фиксированного времени. Все посетители видят одинаковое время.
+  Часовой пояс в строке ниже: UTC+3. Время окончания: 24 октября 2026, 22:10.
+*/
+const END_AT_ISO = "2026-10-24T22:10:00+03:00";
+const TOTAL_SECONDS = 45 * 60;
+const timerEl = document.getElementById("timer");
+const stateEl = document.getElementById("timerState");
+const bar = document.getElementById("progressBar");
+const endAt = new Date(END_AT_ISO).getTime();
+const startAt = endAt - TOTAL_SECONDS * 1000;
+
+function renderTimer(){
+  const remainingMs = Math.max(0, endAt - Date.now());
+  const total = Math.ceil(remainingMs / 1000);
+  const mins = Math.floor(total / 60);
+  const secs = total % 60;
+  timerEl.textContent = String(mins).padStart(2,"0") + ":" + String(secs).padStart(2,"0");
+  const progress = Math.max(0, Math.min(100, remainingMs / (TOTAL_SECONDS * 1000) * 100));
+  bar.style.width = progress + "%";
+  if (remainingMs <= 0){
+    stateEl.textContent = "🎃 ДРОП ожидайте скрипта в проектах...";
+    timerEl.classList.add("urgent");
+  } else if (remainingMs <= 60 * 1000){
+    stateEl.textContent = "⚠️ Последняя минута! скоро дроп";
+    timerEl.classList.add("urgent");
+  } else {
+    stateEl.textContent = "🟣 Общий таймер активен — одинаковый для всех посетителей.";
+    timerEl.classList.remove("urgent");
+  }
+}
+renderTimer();
+setInterval(renderTimer, 250);
+</script>
+</body></html>
